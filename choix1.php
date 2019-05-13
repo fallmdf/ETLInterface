@@ -105,141 +105,37 @@ catch(PDOException $e)
              // nmbre de colonne
              $nom_colonne_dim[] =  $row2['Field'] ;  
         }
-/*
-//***************************** Les Departement  *****************************************
-        $k=0;
-        
-echo $nom_colonne_dim[$k++].' <SELECT name="nom" size="1">';
-for ($i=0;$i<count($Departement) ; $i++) { 
-               
-             echo '<OPTION  value="" >'.$Departement[$i].'</OPTION>';
-             }  echo "</SELECT><br/>";
+        //variable qui permet d eliminer la repetition d un IF Ex:Milieu 
+            $dep=0;
+            $mil=0;
+            $T_etabli=0;
+            $gen=0;
+            $T_client=0;
+            $moi=0;
+            $ann=0;
+            $per=0;
+            $ban=0;
+            $pay=0;
+            $age=0;
+            $T_compte=0;
+            $reg=0;
+            $cat=0;
+            $T_assura=0;
 
-//***************************** Milieu *****************************************
-echo $nom_colonne_dim[$k++].' <SELECT name="nom" size="1">';
-for ($i=0;$i<count($Milieu) ; $i++) { 
-              
-              echo '<OPTION  value="" >'.$Milieu[$i].'</OPTION>'; 
-   
-             }  echo "</SELECT><br/>";
-
-//***************************** type etablissement *****************************************
-echo $nom_colonne_dim[$k++].' <SELECT name="nom" size="1">';
-for ($i=0;$i<count($Type_etabli) ; $i++) { 
-              
-              echo '<OPTION  value="" >'.$Type_etabli[$i].'</OPTION>'; 
-   
-             }  echo "</SELECT><br/>";
-
-//***************************** le Genre *****************************************
-echo $nom_colonne_dim[$k++].' <SELECT name="nom" size="1">';
-for ($i=0;$i<count($Genre) ; $i++) { 
-              
-              echo '<OPTION  value="" >'.$Genre[$i].'</OPTION>'; 
-   
-             }  echo "</SELECT><br/>";
-
-//***************************** Type client *****************************************
-echo $nom_colonne_dim[$k++].' <SELECT name="nom" size="1">';  
-for ($i=0;$i<count($Type_client) ; $i++) { 
-              
-              echo '<OPTION  value="" >'.$Type_client[$i].'</OPTION>'; 
-
-             }  echo "</SELECT><br/>";
-
-//***************************** les Mois *****************************************
-        echo $nom_colonne_dim[$k++].' <SELECT name="nom" size="1">';  
-              echo '<OPTION  value="" >Janvier</OPTION>'; 
-              echo '<OPTION  value="" >Fevrier</OPTION>';
-              echo '<OPTION  value="" >Mars</OPTION>';
-              echo '<OPTION  value="" >Avril</OPTION>';
-              echo '<OPTION  value="" >Mai</OPTION>';
-              echo '<OPTION  value="" >Juin</OPTION>';
-              echo '<OPTION  value="" >Juiller</OPTION>';
-              echo '<OPTION  value="" >Aout</OPTION>';
-              echo '<OPTION  value="" >Septembre</OPTION>';
-              echo '<OPTION  value="" >Octobre</OPTION>';
-              echo '<OPTION  value="" >Novembre</OPTION>';
-              echo '<OPTION  value="" >Decembre</OPTION>';
- 
-        echo "</SELECT><br/>";
-
-//***************************** input Annee *****************************************              
-              echo $nom_colonne_dim[$k++].' <input type="text" name="machin[]" value="1"/><br>'; 
-
-//***************************** Periode *****************************************           
- echo $nom_colonne_dim[$k++].' <SELECT name="nom" size="1">'; 
-for ($i=0;$i<count($Periode) ; $i++) { 
-              
-              echo '<OPTION  value="" >'.$Periode[$i].'</OPTION>'; 
-        
-             }  echo "</SELECT><br/>";
-
-//***************************** Banque *****************************************
-echo $nom_colonne_dim[$k++].' <SELECT name="nom" size="1">';
-for ($i=0;$i<count($Banque) ; $i++) { 
-              
-              echo '<OPTION  value="" >'.$Banque[$i].'</OPTION>'; 
-
-             }  echo "</SELECT><br/>";
-
-//***************************** Pays *****************************************
-echo $nom_colonne_dim[$k++].' <SELECT name="nom" size="1">';  
-for ($i=0;$i<count($Pays) ; $i++) { 
-              
-              echo '<OPTION  value="" >'.$Pays[$i].'</OPTION>'; 
- 
-             }  echo "</SELECT><br/>";
-
-
-
-//***************************** input Age *****************************************
-          echo $nom_colonne_dim[$k++].' <input type="text" name="machin[]" value="1"/><br>';  
- 
-//***************************** type compte *****************************************             
-echo $nom_colonne_dim[$k++].' <SELECT name="nom" size="1">';  
-for ($i=0;$i<count($Type_compte) ; $i++) { 
-              
-              echo '<OPTION  value="" >'.$Type_compte[$i].'</OPTION>'; 
-
-             }  echo "</SELECT><br/>";
-
-//***************************** Regions *****************************************
-echo $nom_colonne_dim[$k++].' <SELECT name="nom" size="1">';  
-for ($i=0;$i<count($Regions) ; $i++) { 
-              
-              echo '<OPTION  value="" >'.$Regions[$i].'</OPTION>'; 
-
-             }  echo "</SELECT><br/>";
-
-//***************************** Categorie *****************************************
-echo $nom_colonne_dim[$k++].' <SELECT name="nom" size="1">';  
-for ($i=0;$i<count($Categorie_s) ; $i++) { 
-              
-              echo '<OPTION  value="" >'.$Categorie_s[$i].'</OPTION>'; 
-
-             }  echo "</SELECT><br/>";
-
-//***************************** Type assurance *****************************************
-echo $nom_colonne_dim[$k++].' <SELECT name="nom" size="1">';
-for ($i=0;$i<count($Type_Assura) ; $i++) { 
-              
-              echo '<OPTION  value="" >'.$Type_Assura[$i].'</OPTION>'; 
-             
-             }  echo "</SELECT><br/>";
-*/
      for ($i=0; $i <count($generer_dim) ;  $i++) {
       
-              if ($generer_dim[$i]=="Departemen") {
+              if ($generer_dim[$i]=="Departement" and $dep==0) {
                 
                                   echo $generer_dim[$i].' <SELECT name="nom" size="1">';
                                   for ($j=0;$j<count($Departement) ; $j++) { 
                                    
-                                 echo '<OPTION  value="" >'.$Departement[$j].'</OPTION>';
-                                 }  echo "</SELECT><br/>";
+                                   echo '<OPTION  value="" >'.$Departement[$j].'</OPTION>';
+                                   }  echo "</SELECT><br/>";
+                                   $dep++;
 
               }
-              if ($generer_dim[$i]=="Milieu") {
+              
+              if ($generer_dim[$i]=="Milieu" and $mil==0) {
                 
                                   echo $generer_dim[$i].' <SELECT name="nom" size="1">';
                                   for ($j=0;$j<count($Milieu) ; $j++) { 
@@ -247,9 +143,10 @@ for ($i=0;$i<count($Type_Assura) ; $i++) {
                                   echo '<OPTION  value="" >'.$Milieu[$j].'</OPTION>'; 
                        
                                   }  echo "</SELECT><br/>";
+                                  $mil++;
 
               }
-              if ($generer_dim[$i]=="Type_etabl") {
+              if ($generer_dim[$i]=="Type_etabli" and $T_etabli==0) {
                 
                                   echo $generer_dim[$i].' <SELECT name="nom" size="1">';
                                   for ($j=0;$j<count($Type_etabli) ; $j++) { 
@@ -257,9 +154,10 @@ for ($i=0;$i<count($Type_Assura) ; $i++) {
                                   echo '<OPTION  value="" >'.$Type_etabli[$j].'</OPTION>'; 
                        
                                  }  echo "</SELECT><br/>";
+                                 $T_etabli++;
 
               }
-              if ($generer_dim[$i]=="Genre") {
+              if ($generer_dim[$i]=="Genre" and $gen==0) {
                 
                                   echo $generer_dim[$i].' <SELECT name="nom" size="1">';
                                   for ($j=0;$j<count($Genre) ; $j++) { 
@@ -267,9 +165,9 @@ for ($i=0;$i<count($Type_Assura) ; $i++) {
                                   echo '<OPTION  value="" >'.$Genre[$j].'</OPTION>'; 
                        
                                  }  echo "</SELECT><br/>";
-
+                                 $gen++;
               }
-              if ($generer_dim[$i]=="Type_clien") {
+              if ($generer_dim[$i]=="Type_client" and $T_client==0) {
                 
                                   echo $generer_dim[$i].' <SELECT name="nom" size="1">';  
                                     for ($j=0;$j<count($Type_client) ; $j++) { 
@@ -277,9 +175,10 @@ for ($i=0;$i<count($Type_Assura) ; $i++) {
                                     echo '<OPTION  value="" >'.$Type_client[$j].'</OPTION>'; 
 
                                    }  echo "</SELECT><br/>";
+                                   $T_client++;
 
               }
-              if ($generer_dim[$i]=="Mois") {
+              if ($generer_dim[$i]=="Mois" and $moi==0) {
                 
                                   echo $generer_dim[$i].' <SELECT name="nom" size="1">';  
                                   echo '<OPTION  value="" >Janvier</OPTION>'; 
@@ -294,16 +193,17 @@ for ($i=0;$i<count($Type_Assura) ; $i++) {
                                   echo '<OPTION  value="" >Octobre</OPTION>';
                                   echo '<OPTION  value="" >Novembre</OPTION>';
                                   echo '<OPTION  value="" >Decembre</OPTION>';
-                     
                                   echo "</SELECT><br/>";
+                                  $moi++;
 
               }
 
-              if ($generer_dim[$i]=="Annee") {
+              if ($generer_dim[$i]=="Annee" and $ann==0) {
               echo $generer_dim[$i].' <input type="text" name="machin[]" value="1"/><br>'; 
+              $ann++;
               }
 
-              if ($generer_dim[$i]=="Periode") {
+              if ($generer_dim[$i]=="Periode" and $per==0) {
                 
                                   echo $generer_dim[$i].' <SELECT name="nom" size="1">'; 
                                   for ($j=0;$j<count($Periode) ; $j++) { 
@@ -311,9 +211,10 @@ for ($i=0;$i<count($Type_Assura) ; $i++) {
                                   echo '<OPTION  value="" >'.$Periode[$j].'</OPTION>'; 
                             
                                  }  echo "</SELECT><br/>";
+                                 $per++;
 
               }
-              if ($generer_dim[$i]=="Banque") {
+              if ($generer_dim[$i]=="Banque" and $ban==0) {
                 
                                   echo $generer_dim[$i].' <SELECT name="nom" size="1">';
                                   for ($j=0;$j<count($Banque) ; $j++) { 
@@ -321,21 +222,24 @@ for ($i=0;$i<count($Type_Assura) ; $i++) {
                                   echo '<OPTION  value="" >'.$Banque[$j].'</OPTION>'; 
 
                                  }  echo "</SELECT><br/>";
+                                 $ban++;
 
               }
-              if ($generer_dim[$i]=="Pays") {
+              if ($generer_dim[$i]=="Pays" and $pay==0) {
                     for ($j=0;$j<count($Pays) ; $j++) { 
                     
                     echo '<OPTION  value="" >'.$Pays[$j].'</OPTION>'; 
        
                    }  echo "</SELECT><br/>";
+                   $pay++;
               }
-              if ($generer_dim[$i]=="Age") {
+              if ($generer_dim[$i]=="Age" and $age==0) {
                 
                                   echo $generer_dim[$i].'<input type="text" name="machin[]" value="1"/><br>';
+                                  $age++;
 
               }
-              if ($generer_dim[$i]=="Type_compt") {
+              if ($generer_dim[$i]=="Type_compte" and $T_compte==0) {
                 
                                   echo $generer_dim[$i].' <SELECT name="nom" size="1">';  
                                   for ($j=0;$j<count($Type_compte) ; $j++) { 
@@ -343,9 +247,10 @@ for ($i=0;$i<count($Type_Assura) ; $i++) {
                                   echo '<OPTION  value="" >'.$Type_compte[$j].'</OPTION>'; 
 
                                  }  echo "</SELECT><br/>";
+                                 $T_compte++;
 
               }
-              if ($generer_dim[$i]=="Regions") {
+              if ($generer_dim[$i]=="Regions" and $reg==0) {
                 
                                   echo $generer_dim[$i].' <SELECT name="nom" size="1">';  
                                   for ($j=0;$j<count($Regions) ; $j++) { 
@@ -353,17 +258,20 @@ for ($i=0;$i<count($Type_Assura) ; $i++) {
                                   echo '<OPTION  value="" >'.$Regions[$i].'</OPTION>'; 
 
                                  }  echo "</SELECT><br/>";
+                                 $reg++;
 
               }
 
-              if ($generer_dim[$i]=="Type_Assur") {
+              if ($generer_dim[$i]=="Categorie_s" and $cat==0) {
+                                echo $generer_dim[$i].' <SELECT name="nom" size="1">';
                                 for ($j=0;$j<count($Categorie_s) ; $j++) { 
                                 
                                 echo '<OPTION  value="" >'.$Categorie_s[$j].'</OPTION>'; 
 
                                }  echo "</SELECT><br/>";
+                               $cat++;
               }
-              if ($generer_dim[$i]=="Type_Assur") {
+              if ($generer_dim[$i]=="Type_Assura" and $T_assura==0) {
                 
                                   echo $generer_dim[$i].' <SELECT name="nom" size="1">';
                                   for ($j=0;$j<count($Type_Assura) ; $j++) { 
@@ -371,11 +279,14 @@ for ($i=0;$i<count($Type_Assura) ; $i++) {
                                   echo '<OPTION  value="" >'.$Type_Assura[$j].'</OPTION>'; 
                                  
                                  }  echo "</SELECT><br/>";
+                                 $T_assura++;
 
               }
-           //echo $generer_dim[$i].'<br>';   
+           
      }      
-
+// git remote add github https://github.com/serignembow/ETLInterface.git
+//  git remote -v
+// git push -f github master
 ?>
  
 
